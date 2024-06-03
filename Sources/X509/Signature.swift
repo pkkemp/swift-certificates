@@ -35,12 +35,12 @@ extension Certificate {
         var backing: BackingSignature
 
         @inlinable
-        internal init(backing: BackingSignature) {
+        public init(backing: BackingSignature) {
             self.backing = backing
         }
 
         @inlinable
-        internal init(signatureAlgorithm: SignatureAlgorithm, signatureBytes: ASN1BitString) throws {
+        public init(signatureAlgorithm: SignatureAlgorithm, signatureBytes: ASN1BitString) throws {
             switch signatureAlgorithm {
             case .ecdsaWithSHA256, .ecdsaWithSHA384, .ecdsaWithSHA512:
                 let signature = try ECDSASignature(derEncoded: signatureBytes.bytes)
